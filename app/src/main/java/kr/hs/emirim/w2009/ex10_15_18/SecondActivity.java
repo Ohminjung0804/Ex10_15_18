@@ -17,7 +17,22 @@ int sum;
         Intent intent = getIntent();
         int num1 = intent.getIntExtra("num1",0);
         int num2 = intent.getIntExtra("num2",0);
-        sum = num1 + num2;
+        char op = intent.getCharExtra("op", '0');
+        switch (op) {
+            case '+':
+                sum = num1 + num2;
+                break;
+            case '-':
+                sum = num1 - num2;
+                break;
+            case '*':
+                sum = num1 * num2;
+                break;
+            case '/':
+                sum = num1 / num2;
+                break;
+        }
+
 
         Button btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(btnListener);
